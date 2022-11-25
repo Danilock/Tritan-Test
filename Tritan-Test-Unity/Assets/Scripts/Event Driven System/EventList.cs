@@ -1,4 +1,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-///You can use this script to register all events in your game.
+public struct SpeedIncrease
+{
+    public float CurrentSpeed;
+    public float AmountIncreased;
+
+    public SpeedIncrease(float currentSpeed, float amountIncreased)
+    {
+        CurrentSpeed = currentSpeed;
+        AmountIncreased = amountIncreased;
+    }
+}
+
+public struct SpeedDecrease
+{
+    public float CurrentSpeed;
+    public float AmountDecreased;
+
+    public SpeedDecrease(float currentSpeed, float amountDecreased)
+    {
+        CurrentSpeed = currentSpeed;
+        AmountDecreased = amountDecreased;
+    }
+}
+
+public struct OnScorePoint
+{
+    public int CurrentScore;
+
+    public OnScorePoint(int currentScore) => CurrentScore = currentScore;
+}

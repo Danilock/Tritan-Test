@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EventDriven
+namespace Tritan
 {
     public static class Extensions
     {
