@@ -31,3 +31,7 @@ public struct OnScorePoint
 
     public OnScorePoint(int currentScore) => CurrentScore = currentScore;
 }
+
+public struct OnWinMatch { }
+
+public struct OnLevelRestart { }

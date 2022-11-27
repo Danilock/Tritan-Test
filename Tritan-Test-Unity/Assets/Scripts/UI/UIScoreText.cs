@@ -6,7 +6,7 @@ using DG.Tweening;
 
 namespace Tritan
 {
-    public class UIScoreText : MonoBehaviour, IEventListener<OnScorePoint>
+    public class UIScoreText : MonoBehaviour, IEventListener<OnScorePoint>, IEventListener<OnLevelRestart>
     {
         [SerializeField] private TMP_Text _scoreTMP;
 
@@ -22,9 +22,17 @@ namespace Tritan
 
         private Tween PunchTween;
 
-        private void OnEnable() => this.StartListening<OnScorePoint>();
+        private void OnEnable()
+        {
+            this.StartListening<OnScorePoint>();
+            this.StartListening<OnLevelRestart>();
+        }
 
-        private void OnDisable() => this.StopListening<OnScorePoint>();
+        private void OnDisable()
+        {
+            this.StopListening<OnScorePoint>();
+            this.StopListening<OnLevelRestart>();
+        }
 
         public void OnTriggerEvent(OnScorePoint data)
         {
@@ -44,6 +52,11 @@ namespace Tritan
             }
 
             PunchTween = transform.DOPunchScale(_punchScale, _duration);
+        }
+
+        public void OnTriggerEvent(OnLevelRestart data)
+        {
+            _scoreTMP.text = "0";
         }
     }
 }
