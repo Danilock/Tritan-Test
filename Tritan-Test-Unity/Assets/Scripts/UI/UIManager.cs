@@ -54,6 +54,9 @@ namespace Tritan
             {
                 _winPanelTransform.DOMove(_winPanelEndPosition.position, 1f).SetUpdate(true);
             });
+
+            _winScreenCanvasGroup.blocksRaycasts = true;
+            _mainHUDCanvasGroup.blocksRaycasts = false;
         }
 
         public void RestartScene()
@@ -67,6 +70,8 @@ namespace Tritan
                         _mainHUDCanvasGroup.DOFade(1f, 1f).SetUpdate(true).OnComplete(() =>
                         {
                             Time.timeScale = 1f;
+                            _mainHUDCanvasGroup.blocksRaycasts = true;
+                            _winScreenCanvasGroup.blocksRaycasts = false;
                         });
                     }));
                 });
