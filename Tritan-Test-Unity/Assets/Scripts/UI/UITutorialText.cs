@@ -14,6 +14,7 @@ namespace Tritan
         [SerializeField] private float _secondsBetweenLetter = .2f;
 
         [SerializeField] private Transform _endPosition;
+        [SerializeField] private Vector3 _offset;
 
         private Vector3 _startPosition;
 
@@ -28,7 +29,7 @@ namespace Tritan
         {
             yield return new WaitForSeconds(2f);
 
-            transform.DOMove(_endPosition.position, .5f);
+            transform.DOMove(_endPosition.position + _offset, .5f);
 
             yield return new WaitForSecondsRealtime(6f);
 
